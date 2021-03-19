@@ -16,10 +16,11 @@ const TextsDiv = styled.div`
     flex-direction:column;
     margin-top:23px;
 `;
-const TextName = styled.div`
+const TextName = styled.input`
     font-size:${props=>props.ftsize ? props.ftsize : "13px"};
     color:${props=>props.ftcolor ? props.ftcolor : "#000000"};
     margin-bottom:2px;
+    border:none;
 `;
 
 
@@ -28,9 +29,7 @@ const CommentForm = ({name, width, height, bgcolor, buttonactive, Mainpic, profi
 
     return <Container >
       <TextsDiv>
-          <TextName ftcolor="rgba(0, 0, 0, 0.65)">{date}</TextName>
-          <TextName ftcolor="#EF5217" ftsize="17px">{likes} likes </TextName>
-          <TextName ftcolor="#303030">#{bodytext}</TextName>
+          <TextName action="/posts/{{post._id}}/comments" method="post" placeholder="Add the comment..."/>
       </TextsDiv>
 
     </Container>
