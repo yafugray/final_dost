@@ -25,7 +25,7 @@ const TextName = styled.input`
 
 
 
-const CommentForm = ({name, width, height, bgcolor, buttonactive, Mainpic, profilename, profilepic,ftcolor,ftsize,date, likes, bodytext}) => {
+const CommentForm = ({width, height, bgcolor}) => {
 
     return <Container >
       <TextsDiv>

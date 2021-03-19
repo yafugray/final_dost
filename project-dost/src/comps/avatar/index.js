@@ -54,7 +54,7 @@ Avatar.defaultProps = {
     height:null,
     bgcolor:null,
     profilepic:null,
-    profilename:"ShibaJoah",
+    profilename:"",
 }
 
 export default Avatar;
