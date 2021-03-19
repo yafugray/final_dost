@@ -6,19 +6,15 @@ import EditIcon from 'images/edit.png';
 const Container = styled.div`
     
     display:flex; 
-    // justify-content:center;
-    align-items:start;
+    align-items:center;
+    justify-content:center;
     ${props=>props.bgcolor && "background-color:"+props.bgcolor+";"}
-    .Avatar{
-        display:flex;
-        align-items:end;
-    }
-    margin-bottom:24px;
+    margin-bottom:8px;
 
 `;
 const ProfilePicture = styled.div`
-    width:${props=>props.width ? props.width : "125px"}; 
-    height:${props=>props.height ? props.height : "125px"};
+    width:${props=>props.width ? props.width : "48px"}; 
+    height:${props=>props.height ? props.height : "48px"};
     border-radius:50%;
     // border:1px solid red;
     display:flex;
@@ -29,53 +25,36 @@ const ProfilePicture = styled.div`
     background-repeat: no-repeat;
     background-position: center;
 `;
-const Editbutton = styled.div`
-    background-image: url(${EditIcon});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    width: 32px;
-    height: 32px;
-    &:hover{
-        cursor:pointer;
-    }
-    margin-bottom:12px;
-    margin-left:-4px;
-`;
+
 const TextsDiv = styled.div`
     display:flex;
-    flex-direction:column;
     margin-left:12px;
 `;
 const TextName = styled.div`
-    font-size:${props=>props.ftsize ? props.ftsize : "24px"};
+    font-size:${props=>props.ftsize ? props.ftsize : "18px"};
     color:${props=>props.ftcolor ? props.ftcolor : "#000000"};
 `;
 
 
-const Profile = ({name, width, height, bgcolor, profilepic, ftcolor,ftsize,text1,text2}) => {
+const Avatar = ({name, width, height, bgcolor, profilename, profilepic,ftcolor,ftsize,text1,text2}) => {
 
     return <Container >
       <div className="Avatar">
         <ProfilePicture profilepic={profilepic}/>
-        <Editbutton />
       </div>
       <TextsDiv>
-          <TextName ftsize={ftsize}>{text1}</TextName>
-          <TextName ftcolor="#303030" ftsize="20px">@{text2}</TextName>
+          <TextName ftsize={ftsize}>{profilename}</TextName>
       </TextsDiv>
 
     </Container>
 }
 
-Profile.defaultProps = {
+Avatar.defaultProps = {
     width:null,
     height:null,
     bgcolor:null,
     profilepic:null,
-    text1:"Shiba Joah",
-    text2:"hibajoah",
-
+    profilename:"ShibaJoah",
 }
 
-export default Profile;
+export default Avatar;
