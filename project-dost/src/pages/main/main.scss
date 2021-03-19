@@ -1,3 +1,8 @@
 .main {
+    width:414px;
     display: flex;
+    flex-direction: column;
+    &>div{
+        padding-left:48px;
+    }
 }
