@@ -1,13 +1,13 @@
 import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
-import Shiba from 'images/profile.png';
 import Avatar from 'comps/avatar';
 import Husky from 'images/mainpic.png';
 import HuskyAvater from 'images/huskyavatar.png';
 import LikeDefault from 'images/like_button.png';
 import CommentButton from 'images/comment_button.png';
-import LikeActive from 'images/active_like button.png';
+import LikeActive from 'images/active_like_button.png';
 import CommentForm from 'comps/commentform';
+import Buttons from 'comps/likebutton';
 
 const Container = styled.div`
     
@@ -32,34 +32,34 @@ const MainPicture = styled.div`
     
     
 `;
-const ButtonCont = styled.div`
-    display:flex;
-    align-items:center;
-    margin-top:7px;
-    &:hover{
-        cursor:pointer;
-    }
+// const ButtonCont = styled.div`
+//     display:flex;
+//     align-items:center;
+//     margin-top:7px;
+//     &:hover{
+//         cursor:pointer;
+//     }
 
-`;
+// `;
 
-const LikeButton = styled.div`
-    width: 31px;
-    height: 33px;
-    background-image: url(${props=>props.buttonactive ? LikeActive : LikeDefault});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-    margin-right:8px;
-`;
+// const LikeButton = styled.div`
+//     width: 31px;
+//     height: 33px;
+//     background-image: url(${props=>props.liked ? LikeActive :LikeDefault});
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+//     margin-right:8px;
+// `;
 
-const CommentBtn = styled.div`
-    width: 31px;
-    height: 29px;
-    background-image: url(${CommentButton});
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-`;
+// const CommentBtn = styled.div`
+//     width: 31px;
+//     height: 29px;
+//     background-image: url(${CommentButton});
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     background-position: center;
+// `;
 
 const TextsDiv = styled.div`
     display:flex;
@@ -74,7 +74,13 @@ const TextName = styled.div`
 
 
 
-const Timeline = ({name, width, height, bgcolor, buttonactive, Mainpic, profilename, profilepic,ftcolor,ftsize,date, likes, bodytext}) => {
+const Timeline = ({name, width, height, bgcolor, Mainpic, profilename, profilepic,ftcolor,ftsize,date, likes, bodytext, like}) => {
+
+    const [liked, setLiked] = useState(false);
+
+    useEffect(()=>{
+        setLiked(like);
+    },[like])
 
     return <Container >
       <div className="Avatar">
@@ -83,10 +89,15 @@ const Timeline = ({name, width, height, bgcolor, buttonactive, Mainpic, profilen
       <div>
           <MainPicture Mainpic={Mainpic}/>
       </div>
-      <ButtonCont>
-          <LikeButton onClick={()=>("")} buttonactive={buttonactive} />
+      <div>
+          <Buttons />
+      </div>
+      {/* <ButtonCont>
+          <LikeButton onClick={()=>(
+              setLiked(!liked)
+          )} />
           <CommentBtn />
-      </ButtonCont>
+      </ButtonCont> */}
       <TextsDiv>
           <TextName ftcolor="rgba(0, 0, 0, 0.65)">{date}</TextName>
           <TextName ftcolor="#EF5217" ftsize="17px">{likes} likes </TextName>
@@ -109,7 +120,8 @@ Timeline.defaultProps = {
     Mainpic:null,
     date:"Feb 14, 2021",
     likes: "162",
-    bodytext:"TBT Can't believe I was so small!"
+    bodytext:"TBT Can't believe I was so small!",
+    like:false,
 }
 
 export default Timeline;
