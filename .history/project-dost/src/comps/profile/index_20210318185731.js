@@ -3,10 +3,10 @@ import styled from 'styled-components';
 import shiba from 'images/profile.png';
 
 const Container = styled.div`
-    width:${props=>props.width ? props.width : "125px"}; 
-    height:${props=>props.height ? props.height : "125px"};
-    border-radius:50%;
-    border:1px solid red;
+    min-width:${props=>props.width ? props.width : "300px"};
+    min-height:${props=>props.height ? props.height : "100px"};
+    max-width:${props=>props.width ? props.width : "50%"}; 
+    max-height:${props=>props.height ? props.height : "300px"};
     display:flex;
     flex-direction:column;    
     padding:10px;

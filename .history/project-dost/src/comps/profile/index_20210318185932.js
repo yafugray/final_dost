@@ -5,7 +5,7 @@ import shiba from 'images/profile.png';
 const Container = styled.div`
     width:${props=>props.width ? props.width : "125px"}; 
     height:${props=>props.height ? props.height : "125px"};
-    border-radius:50%;
+    border-radius:50px;
     border:1px solid red;
     display:flex;
     flex-direction:column;    
