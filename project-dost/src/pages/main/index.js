@@ -12,13 +12,13 @@ import Logout from 'comps/logout';
 const Main = () => {
 
     return <div className="main">
-        {/* <Profile />
-        <Timeline /> */}
-        <Description />
+        <Profile />
+        <Timeline /> 
+        {/* <Description />
         <OButton />
         <GButton />
         <Logout />
-        <Input />
+        <Input /> */}
     </div>
 }
 
