@@ -11,7 +11,7 @@ const InputCont = styled.input`
   border-style: none;
   border-radius: 10px;
   text-align: left;
-  margin-bottom: 10px;
+  margin: 15px;
   padding: 0px 8px 0px 8px;
   `;
 

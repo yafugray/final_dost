@@ -11,6 +11,7 @@ const Container = styled.button`
     border-radius: 10px;  
     border-style: none;
     margin: 20px;
+    padding:15px 80px;
 `;
 
 const OButton = ({onClick, text}) =>{
