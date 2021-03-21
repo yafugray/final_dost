@@ -3,6 +3,7 @@ import Main from 'pages/main';
 import LandingPage from 'pages/landingPage';
 import LoginPage from 'pages/loginPage'
 import SignupPage from 'pages/signupPage';
+import All from 'pages/all';
 
 
 import {
@@ -28,6 +29,9 @@ function App() {
           </Route>
           <Route exact path="/main">
             <Main />
+          </Route>
+          <Route exact path="/all">
+            <All />
           </Route>
         </Switch>
       </div>

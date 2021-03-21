@@ -3,14 +3,17 @@ import styled from 'styled-components';
 import Shiba from 'images/profile.png';
 import EditIcon from 'images/edit.png';
 import Husky from 'images/huskyavatar.png'
+import Avatar from 'comps/avatar';
 
 const Container = styled.div`
     
-    display:flex; 
+    // display:flex; 
     align-items:center;
-    // justify-content:center;
+    justify-content:center;
     ${props=>props.bgcolor && "background-color:"+props.bgcolor+";"}
     margin-bottom:8px;
+    max-width:100vw;
+
 
 `;
 const ProfilePicture = styled.div`
@@ -33,29 +36,45 @@ const TextsDiv = styled.div`
 `;
 const TextName = styled.div`
     font-size:${props=>props.ftsize ? props.ftsize : "18px"};
+    font-weight:bold;
     color:${props=>props.ftcolor ? props.ftcolor : "#000000"};
 `;
 
+const TextComment = styled.div`
+    font-size:${props=>props.ftsize ? props.ftsize : "13px"};
+    color:${props=>props.ftcolor ? props.ftcolor : "#000000"};
+    margin-bottom:4px;
+    padding-top:4px;
+`;
 
-const Avatar = ({name, width, height, bgcolor, profilename, profilepic,ftcolor,ftsize,text1,text2}) => {
+const Line = styled.hr`
+    border: 1px solid lightgrey;
+    width:98vw;
+    margin-top:20px;
+    justify-content:center;
+`
+const ProfileComment = ({bodytext,name, width, height, bgcolor, profilename, profilepic,ftcolor,ftsize,text1,text2}) => {
 
     return <Container >
       <div className="Avatar">
-        <ProfilePicture profilepic={profilepic}/>
+        <Avatar />
       </div>
-      <TextsDiv>
-          <TextName ftsize={ftsize}>{profilename}</TextName>
-      </TextsDiv>
+      {/* <TextsDiv> */}
+      <TextComment ftcolor="#303030">#{bodytext}</TextComment>
+      {/* </TextsDiv> */}
+      <Line />
+
 
     </Container>
 }
 
-Avatar.defaultProps = {
+ProfileComment.defaultProps = {
     width:null,
     height:null,
     bgcolor:null,
     profilepic:null,
-    profilename:"HuskReed",
+    profilename:"ShibaJoah",
+    bodytext:"Cant believe I was so somall",
 }
 
-export default Avatar;
+export default ProfileComment;
