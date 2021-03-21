@@ -36,6 +36,7 @@ const FeedPage = () => {
         <Input /> */}
         {/* <ProfileComment /> */}
         <CommentProfile />
+        {/* <Description /> */}
   
         </div>
         {/* <Avatar /> */}
