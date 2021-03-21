@@ -20,7 +20,9 @@ const Container = styled.div`
 
 `;
 const MainPicture = styled.div`
-    width:${props=>props.width ? props.width : "414px"}; 
+    // width:${props=>props.width ? props.width : "414px"}; 
+    min-width:100vw;
+    max-height:auto;
     height:${props=>props.height ? props.height : "414px"};
     // border:1px solid red;
     display:flex;

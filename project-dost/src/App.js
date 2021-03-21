@@ -4,8 +4,8 @@ import LandingPage from 'pages/landingPage';
 import LoginPage from 'pages/loginPage'
 import SignupPage from 'pages/signupPage';
 import All from 'pages/all';
-
-
+import CommentPage from 'pages/commentPage';
+import FeedPage from 'pages/feedPage';
 import {
   BrowserRouter as Router,
   Switch,
@@ -32,6 +32,12 @@ function App() {
           </Route>
           <Route exact path="/all">
             <All />
+          </Route>
+          <Route exact path="/commentpage">
+            <CommentPage />
+          </Route>
+          <Route exact path="/feedpage">
+            <FeedPage />
           </Route>
         </Switch>
       </div>
