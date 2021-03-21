@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import Shiba from 'images/profile.png';
 import EditIcon from 'images/edit.png';
 import Husky from 'images/huskyavatar.png'
+import CommentForm from 'comps/commentform';
+import BlackDog from 'images/BlackDog.png';
 
 const Container = styled.div`
     
@@ -21,7 +23,7 @@ const ProfilePicture = styled.div`
     display:flex;
     background-color:#c4c4c4;
     // background:${props=>props.profilepic ? props.profilepic : "125px"}
-    background-image: url(${props=>props.profilepic ? props.profilepic : Husky});
+    background-image: url(${props=>props.profilepic ? props.profilepic : BlackDog});
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -30,32 +32,53 @@ const ProfilePicture = styled.div`
 const TextsDiv = styled.div`
     display:flex;
     margin-left:12px;
+    align-items: center;
 `;
 const TextName = styled.div`
     font-size:${props=>props.ftsize ? props.ftsize : "18px"};
-    color:${props=>props.ftcolor ? props.ftcolor : "#000000"};
+    color:${props=>props.ftcolor ? props.ftcolor : "#EF5217"};
+    font-weight: bold;
 `;
 
+const TextDay = styled.div`
+    font-size:${props=>props.ftsize ? props.ftsize : "12px"};
+    color:${props=>props.ftcolor ? props.ftcolor : "#8E8E8F"};
+    font-weight: bold;
+    margin-left:8px;
+`;
 
-const Avatar = ({name, width, height, bgcolor, profilename, profilepic,ftcolor,ftsize,text1,text2}) => {
+const TextComment = styled.div`
+    font-size:${props=>props.ftsize ? props.ftsize : "12px"};
+    color:${props=>props.ftcolor ? props.ftcolor : "#535358"};
+    font-weight: bold;
+`;
+const CommentProfile = ({name, width, height, bgcolor,comment, date, profilename, profilepic,ftcolor,ftsize,text1,text2}) => {
 
     return <Container >
       <div className="Avatar">
         <ProfilePicture profilepic={profilepic}/>
       </div>
+      <div>
       <TextsDiv>
           <TextName ftsize={ftsize}>{profilename}</TextName>
+          <TextDay>{date} ago</TextDay>
       </TextsDiv>
+      <TextsDiv>
+          <TextComment>{comment}</TextComment>
+      </TextsDiv>
+      </div>
 
     </Container>
 }
 
-Avatar.defaultProps = {
+CommentProfile.defaultProps = {
     width:null,
     height:null,
     bgcolor:null,
     profilepic:null,
-    profilename:"HuskReed",
+    profilename:"Peeky",
+    date:"4 days",
+    comment:"Fire Post!!!!!><",
 }
 
-export default Avatar;
+export default CommentProfile;

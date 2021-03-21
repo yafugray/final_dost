@@ -2,7 +2,9 @@ import React, {useState, useEffect} from 'react';
 import styled from 'styled-components';
 import Shiba from 'images/profile.png';
 import EditIcon from 'images/edit.png';
-import Husky from 'images/huskyavatar.png'
+import Husky from 'images/huskyavatar.png';
+import Input from 'comps/input';
+import OButton from 'comps/button/Orange';
 
 const Container = styled.div`
     
@@ -12,7 +14,17 @@ const Container = styled.div`
     ${props=>props.bgcolor && "background-color:"+props.bgcolor+";"}
     margin-bottom:8px;
 
+
 `;
+
+
+const Divide = styled.div`
+    
+    display:flex; 
+    align-items:center;
+    // justify-content:center;
+`;
+
 const ProfilePicture = styled.div`
     width:${props=>props.width ? props.width : "48px"}; 
     height:${props=>props.height ? props.height : "48px"};
@@ -27,35 +39,38 @@ const ProfilePicture = styled.div`
     background-position: center;
 `;
 
-const TextsDiv = styled.div`
-    display:flex;
-    margin-left:12px;
-`;
-const TextName = styled.div`
-    font-size:${props=>props.ftsize ? props.ftsize : "18px"};
-    color:${props=>props.ftcolor ? props.ftcolor : "#000000"};
+const ButtonCon = styled.button`
+    // width:20px;
+    max-height: 47px;
+    font-size: 18pt;
+    color: white;
+    background-color: #EF5217;
+    border-radius: 10px;  
+    border-style: none;
+    // margin: 20px;
+    padding:15px 80px;
+    text-align: center;
+    justify-content:center;
 `;
 
-
-const Avatar = ({name, width, height, bgcolor, profilename, profilepic,ftcolor,ftsize,text1,text2}) => {
+const Posting = ({name, width, height, bgcolor, profilename, profilepic,ftcolor,ftsize,text1,text2}) => {
 
     return <Container >
-      <div className="Avatar">
+      <Divide>
         <ProfilePicture profilepic={profilepic}/>
-      </div>
-      <TextsDiv>
-          <TextName ftsize={ftsize}>{profilename}</TextName>
-      </TextsDiv>
+        <Input type="Comment" placeholder="Comment" />
+        <ButtonCon>Post</ButtonCon>
+      </Divide>
 
     </Container>
 }
 
-Avatar.defaultProps = {
+Posting.defaultProps = {
     width:null,
     height:null,
     bgcolor:null,
-    profilepic:null,
+    profilepic:Shiba,
     profilename:"HuskReed",
 }
 
-export default Avatar;
+export default Posting;
