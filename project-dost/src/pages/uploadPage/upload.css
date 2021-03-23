@@ -1,0 +1,11 @@
+#imagePreview {
+    width:100vw;
+    height:auto;
+    max-height:60vh;
+    object-fit: contain;
+    margin-bottom:-11px;
+}
+
+input {
+    margin: 10px;
+}

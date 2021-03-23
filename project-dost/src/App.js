@@ -6,6 +6,7 @@ import SignupPage from 'pages/signupPage';
 import All from 'pages/all';
 import CommentPage from 'pages/commentPage';
 import FeedPage from 'pages/feedPage';
+import UploadPage from 'pages/uploadPage';
 import {
   BrowserRouter as Router,
   Switch,
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <Route exact path="/all">
             <All />
+          </Route>
+          <Route exact path="/upload">
+            <UploadPage />
           </Route>
           <Route exact path="/commentpage">
             <CommentPage />

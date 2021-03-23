@@ -5,7 +5,7 @@ import forward from 'images/forward.png';
 import logo from 'images/logo.png';
 
 const Header_box = styled.div`
-    padding-top:25px;
+    padding-top:22px;
     width: 100vw;
     height:10vh;
     display:flex;

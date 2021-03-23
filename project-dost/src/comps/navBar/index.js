@@ -8,12 +8,15 @@ import PostActive from 'images/postActive.png';
 import ProfileIcon from 'images/profileIcon.png';
 import ProfileIconActive from 'images/profileIconActive.png'
 
+import {useLocation, Link, useHistory} from 'react-router-dom';
+
 const NavBarBox = styled.div`
 
 `;
 
-const HomeButton = styled.div`
-    width:32%;
+const HomeButton = styled.button`
+    width:32vw;
+    height:7vh;
     background-color:#252528;
     border-radius:5px;
     margin:3px;
@@ -26,8 +29,9 @@ const HomeButton = styled.div`
     background-position: center;
 `;
 
-const PostButton = styled.div`
-    width:32%;
+const PostButton = styled.button`
+    width:32vw;
+    height:7vh;
     background-color:#252528;
     border-radius:5px;
     margin:3px 0;
@@ -40,8 +44,9 @@ const PostButton = styled.div`
     background-position: center;
 `;
 
-const ProfileButton = styled.div`
-    width:32%;
+const ProfileButton = styled.button`
+    width:32vw;
+    height:7vh;
     background-color:#252528;
     border-radius:5px;
     margin:3px;
@@ -63,7 +68,7 @@ const BotNavBar = styled.div`
     position:fixed;
     bottom:0;
     width:100%;
-    height:75px;
+    height:8vh;
     background-color:#535358;
     display:flex;
     justify-content:space-around;
@@ -90,6 +95,9 @@ const NavBar = ({HomeActive, PostActive, ProfileIconActive}) => {
 
     useEffect(()=>{
         setHomeActivated(HomeActive);
+    },[])
+    useEffect(()=>{
+        setHomeActivated(HomeActive);
     },[HomeActive])
     useEffect(()=>{
         setPostActivated(PostActive);
@@ -98,21 +106,32 @@ const NavBar = ({HomeActive, PostActive, ProfileIconActive}) => {
         setProfileIconActivated(ProfileIconActive);
     },[ProfileIconActive])
 
+
+
     return <NavBarBox>
         <TopNavBar>
             <Header />
         </TopNavBar>
 
         <BotNavBar>
-            <HomeButton onClick={()=>( setHomeActivated(!HomeActivated), setPostActivated(false), setProfileIconActivated(false))} HomeActivated={HomeActivated}>
-                <HomeImg />
-            </HomeButton>
-            <PostButton onClick={()=>( setPostActivated(!PostActivated), setHomeActivated(false), setProfileIconActivated(false))} PostActivated={PostActivated}>
-                <PostImg />
-            </PostButton>
-            <ProfileButton onClick={()=>( setProfileIconActivated(!ProfileIconActivated), setPostActivated(false), setHomeActivated(false))} ProfileIconActivated={ProfileIconActivated}>
-                <ProfileImg />
-            </ProfileButton>
+            <Link to="/main">
+                <HomeButton onClick={()=>( setHomeActivated(!HomeActivated), setPostActivated(false), setProfileIconActivated(false))} HomeActivated={HomeActivated}>
+                    <HomeImg />
+                </HomeButton>
+            </Link>
+   
+            <Link to="/upload" >
+                <PostButton onClick={()=>( setPostActivated(!PostActivated), setHomeActivated(false), setProfileIconActivated(false))} PostActivated={PostActivated}>
+                    <PostImg />
+                </PostButton>
+            </Link>
+
+            <Link>
+                <ProfileButton onClick={()=>( setProfileIconActivated(!ProfileIconActivated), setPostActivated(false), setHomeActivated(false))} ProfileIconActivated={ProfileIconActivated}>
+                    <ProfileImg />
+                </ProfileButton>
+            </Link>
+            
         </BotNavBar>
 
     </NavBarBox>
