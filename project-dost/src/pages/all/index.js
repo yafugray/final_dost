@@ -29,7 +29,8 @@ const All = () => {
         <ProfileComment />
         <Posting />
         <CommentProfile />
-        {/* <Avatar /> */}
+        <Avatar />
+        <Profile />
     </div>
 }
 
