@@ -7,6 +7,8 @@ import All from 'pages/all';
 import CommentPage from 'pages/commentPage';
 import FeedPage from 'pages/feedPage';
 import UploadPage from 'pages/uploadPage';
+import ProfilePage from 'pages/profilePage';
+
 import {
   BrowserRouter as Router,
   Switch,
@@ -42,6 +44,9 @@ function App() {
           </Route>
           <Route exact path="/feedpage">
             <FeedPage />
+            </Route>
+            <Route exact path="/profile">
+            <ProfilePage />
           </Route>
         </Switch>
       </div>
